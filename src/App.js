@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Hello World - Netlify Site4
+          Hello React - Netlify Site7
           change
         </p>
       </header>
