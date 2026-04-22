@@ -6,7 +6,7 @@ function App() {
       <header>
         <p className="header-eyebrow">bhenning.com / dashboard</p>
         <h1>site<em>7</em></h1>
-        <p className="header-sub">tools &amp; utilities — select a destination</p>
+        <p className="header-sub">tools &amp; utilities — select a destination (react)</p>
         <div className="header-rule"></div>
       </header>
 
