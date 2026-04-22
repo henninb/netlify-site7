@@ -1,7 +1,28 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo npx create-react-app react-app
-npm install
-npm start
+set -euo pipefail
 
-exit 0
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT_DIR"
+
+PORT="${PORT:-3000}"
+HOST="${HOST:-0.0.0.0}"
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "Node.js is required but was not found in PATH."
+  exit 1
+fi
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo "npm is required but was not found in PATH."
+  exit 1
+fi
+
+if [ ! -d node_modules ]; then
+  echo "Installing dependencies..."
+  npm install
+fi
+
+echo "Starting local app on http://${HOST}:${PORT}"
+export HOST PORT
+exec npm start
